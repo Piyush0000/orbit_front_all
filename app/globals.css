@@ -124,3 +124,39 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none !important;
+    /* IE and Edge */
+    scrollbar-width: none !important;
+    /* Firefox */
+  }
+
+  /* Buttons and arrows for webkit */
+  .no-scrollbar::-webkit-scrollbar-button {
+    display: none !important;
+  }
+
+  .subtle-scrollbar::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  .subtle-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .subtle-scrollbar::-webkit-scrollbar-thumb {
+    background: oklch(0.922 0 0);
+    border-radius: 10px;
+  }
+
+  .subtle-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.8 0 0);
+  }
+}

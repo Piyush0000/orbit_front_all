@@ -2,33 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 
-const categories = [
-    {
-        name: "Snacks",
-        image: "/category-snacks.png",
-        href: "/categories/snacks",
-    },
-    {
-        name: "Beverages",
-        image: "/category-beverages.png",
-        href: "/categories/beverages",
-    },
-    {
-        name: "Ready-to-Eat",
-        image: "/hero.png", // Reusing hero for now
-        href: "/categories/ready-to-eat",
-    },
-    {
-        name: "Organic & Healthy",
-        image: "/category-organic.png",
-        href: "/categories/organic",
-    },
-    {
-        name: "Combos",
-        image: "/category-combos.png",
-        href: "/combos",
-    },
-]
+import { categories } from "@/lib/data"
 
 export default function CategoryExplorer() {
     return (
@@ -37,14 +11,14 @@ export default function CategoryExplorer() {
                 <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
                     <div className="space-y-2">
                         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-zinc-900 uppercase">Explore Categories</h2>
-                        <p className="max-w-[700px] text-zinc-500 md:text-xl dark:text-zinc-400">
+                        <p className="max-w-[700px] text-zinc-500 md:text-xl">
                             Discover our wide range of premium food and beverage selections.
                         </p>
                     </div>
                 </div>
                 <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
                     {categories.map((category) => (
-                        <Link key={category.name} href={category.href}>
+                        <Link key={category.name} href={`/categories/${category.slug}`}>
                             <Card className="group relative overflow-hidden rounded-xl border-none bg-white shadow-md transition-all hover:shadow-xl hover:-translate-y-1">
                                 <CardContent className="p-0">
                                     <div className="aspect-square relative flex items-center justify-center">
