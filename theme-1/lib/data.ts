@@ -9,6 +9,7 @@ export interface Product {
     rating: number;
     reviewCount: number;
     category: string;
+    originalPrice?: number;
     badge?: string;
     dietary: {
         vegan: boolean;
@@ -38,6 +39,7 @@ export const products: Product[] = [
         shortDescription: "Gourmet popcorn infused with premium black truffle oil and sea salt.",
         fullDescription: "Indulge in the ultimate snacking experience with our Truffle Popcorn. We use only the finest non-GMO corn, popped to perfection and drizzled with authentic black truffle oil. Each bite offers a sophisticated earthy aroma balanced with a hint of sea salt, making it the perfect companion for movie nights or elegant gatherings.",
         price: 299,
+        originalPrice: 349,
         image: ["/category-snacks.png", "/category-snacks.png", "/category-snacks.png"],
         veg: true,
         rating: 4.8,
@@ -70,6 +72,7 @@ export const products: Product[] = [
         shortDescription: "Roasted cashews coated in a fiery peri peri spice blend.",
         fullDescription: "Our Spicy Peri Peri Cashews are a bold explosion of flavor. Hand-picked premium cashews are slow-roasted and tossed in a secret blend of African bird's eye chili, garlic, and citrus. It's the perfect snack for those who love a little heat followed by the creamy crunch of high-quality nuts.",
         price: 499,
+        originalPrice: 599,
         image: ["/category-snacks.png"],
         veg: true,
         rating: 4.4,
@@ -284,6 +287,72 @@ export const products: Product[] = [
             instructions: "Keep refrigerated. Serve at room temperature for best flavor.",
             bestBefore: "30 days",
             disclaimer: "Contains Milk and Wheat."
+        }
+    },
+    {
+        id: 9,
+        name: "Movie Night Special",
+        shortDescription: "2x Truffle Popcorn, 2x Sparkling Berry Fusion",
+        fullDescription: "Make your movie nights unforgettable with our Movie Night Special. This combo includes two packs of our best-selling Truffle Popcorn and two bottles of refreshing Sparkling Berry Fusion. It's the perfect mix of savory and sweet for sharing properly.",
+        price: 699,
+        originalPrice: 838,
+        image: ["/category-combos.png"],
+        veg: true,
+        rating: 4.9,
+        reviewCount: 42,
+        category: "combos",
+        badge: "Best Value",
+        dietary: {
+            vegan: true,
+            sugarFree: false,
+            glutenFree: true
+        },
+        spiceLevel: "None",
+        ingredients: ["Popped Corn", "Black Truffle Oil", "Sparkling Water", "Berry Juice Concentrate"],
+        nutrition: {
+            energy: "210 kcal",
+            protein: "2g",
+            carbohydrates: "25g",
+            sugar: "12g",
+            fat: "6g"
+        },
+        storage: {
+            instructions: "Store popcorn in a cool dry place. Refrigerate drinks.",
+            bestBefore: "30 days",
+            disclaimer: "Best served chilled."
+        }
+    },
+    {
+        id: 10,
+        name: "Office Break Pack",
+        shortDescription: "Gourmet Trail Mix, Cold Pressed Juice, Caffeine Boost",
+        fullDescription: "Stay energized and focused with our Office Break Pack. This thoughtfully curated combo features our nutrient-dense Gourmet Trail Mix, a revitalizing Cold Pressed Juice, and a natural Caffeine Boost bar. It's the ultimate productivity partner.",
+        price: 599,
+        originalPrice: 749,
+        image: ["/category-combos.png"],
+        veg: true,
+        rating: 4.7,
+        reviewCount: 28,
+        category: "combos",
+        badge: "Work Essentials",
+        dietary: {
+            vegan: true,
+            sugarFree: true,
+            glutenFree: true
+        },
+        spiceLevel: "None",
+        ingredients: ["Almonds", "Walnuts", "Orange Juice", "Coffee Extract", "Dates", "Oats"],
+        nutrition: {
+            energy: "340 kcal",
+            protein: "12g",
+            carbohydrates: "45g",
+            sugar: "15g",
+            fat: "14g"
+        },
+        storage: {
+            instructions: "Refrigerate juice. Keep snacks in a cool dry place.",
+            bestBefore: "5 days (Juice)",
+            disclaimer: "Contains nuts and caffeine."
         }
     }
 ];

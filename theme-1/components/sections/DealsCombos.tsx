@@ -2,29 +2,14 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
-
-const combos = [
-    {
-        id: 1,
-        name: "Movie Night Special",
-        description: "2x Truffle Popcorn, 2x Sparkling Berry Fusion",
-        originalPrice: 838,
-        discountedPrice: 699,
-        image: "/category-combos.png",
-        savings: 139,
-    },
-    {
-        id: 2,
-        name: "Office Break Pack",
-        description: "Gourmet Trail Mix, Cold Pressed Juice, Caffeine Boost",
-        originalPrice: 749,
-        discountedPrice: 599,
-        image: "/category-combos.png",
-        savings: 150,
-    }
-]
+import { products } from "@/lib/data"
+import Link from "next/link"
 
 export default function DealsCombos() {
+    const combos = products
+        .filter(p => p.category === 'combos')
+        .slice(0, 2) // Just show 2 for the home page section
+
     return (
         <section className="py-16 md:py-24 bg-zinc-50">
             <div className="container mx-auto px-4 md:px-6 text-center">
@@ -39,26 +24,39 @@ export default function DealsCombos() {
                         <Card key={combo.id} className="overflow-hidden border-none shadow-lg bg-white flex flex-col sm:flex-row items-center">
                             <div className="relative w-full sm:w-1/2 aspect-square">
                                 <Image
-                                    src={combo.image}
+                                    src={combo.image[0]}
                                     alt={combo.name}
                                     fill
                                     className="object-cover"
                                 />
                             </div>
                             <CardContent className="p-8 text-left space-y-4 sm:w-1/2">
-                                <Badge className="bg-orange-500 text-white border-none uppercase text-[10px] tracking-widest px-3 py-1">
-                                    Save ₹{combo.savings}
-                                </Badge>
+                                {combo.originalPrice && (
+                                    <Badge className="bg-orange-500 text-white border-none uppercase text-[10px] tracking-widest px-3 py-1">
+                                        Save ₹{combo.originalPrice - combo.price}
+                                    </Badge>
+                                )}
                                 <h3 className="text-2xl font-bold text-zinc-900 leading-tight uppercase">{combo.name}</h3>
-                                <p className="text-zinc-500 text-sm leading-relaxed">{combo.description}</p>
+                                <p className="text-zinc-500 text-sm leading-relaxed line-clamp-2">{combo.shortDescription}</p>
                                 <div className="flex items-baseline gap-3">
-                                    <span className="text-3xl font-extrabold text-primary">₹{combo.discountedPrice}</span>
-                                    <span className="text-lg text-zinc-400 line-through decoration-zinc-400/50">₹{combo.originalPrice}</span>
+                                    <span className="text-3xl font-extrabold text-primary">₹{combo.price}</span>
+                                    {combo.originalPrice && (
+                                        <span className="text-lg text-zinc-400 line-through decoration-zinc-400/50">₹{combo.originalPrice}</span>
+                                    )}
                                 </div>
-                                <Button className="w-full sm:w-auto px-8 font-bold uppercase tracking-widest">Add Combo</Button>
+                                <Link href={`/products/${combo.id}`}>
+                                    <Button className="w-full sm:w-auto px-8 font-bold uppercase tracking-widest">View Combo</Button>
+                                </Link>
                             </CardContent>
                         </Card>
                     ))}
+                </div>
+                <div className="mt-12">
+                    <Link href="/combos">
+                        <Button variant="outline" className="px-8 font-bold uppercase tracking-widest border-2">
+                            View All Combos
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </section>
