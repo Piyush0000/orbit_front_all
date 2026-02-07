@@ -153,10 +153,12 @@ export default function CartPage() {
                                 <span className="text-3xl font-black text-primary tracking-tighter">₹{subtotal}</span>
                             </div>
 
-                            <Button className="w-full h-16 text-lg font-black uppercase tracking-[0.2em] group rounded-none">
-                                Proceed To Pay
-                                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-2" />
-                            </Button>
+                            <Link href="/checkout">
+                                <Button className="w-full h-16 text-lg font-black uppercase tracking-[0.2em] group rounded-none">
+                                    Proceed To Pay
+                                    <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-2" />
+                                </Button>
+                            </Link>
                         </div>
 
                         <div className="bg-white border border-zinc-200 p-6 space-y-4">

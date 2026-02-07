@@ -111,10 +111,12 @@ export function CartDrawer({ open, onOpenChange }: CartDrawerProps) {
                                     View Full Bag
                                 </Button>
                             </Link>
-                            <Button className="w-full h-14 font-black uppercase tracking-widest group rounded-none">
-                                Checkout NOW
-                                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-                            </Button>
+                            <Link href="/checkout" onClick={() => onOpenChange(false)} className="w-full">
+                                <Button className="w-full h-14 font-black uppercase tracking-widest group rounded-none">
+                                    Checkout NOW
+                                    <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                                </Button>
+                            </Link>
                         </div>
                     </SheetFooter>
                 )}

@@ -65,7 +65,7 @@ export default function Header() {
     }
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+        <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="container mx-auto flex h-16 items-center justify-between px-4">
                 {/* Brand Logo */}
                 <div className="flex items-center gap-2">
@@ -79,15 +79,16 @@ export default function Header() {
                     <Input
                         type="search"
                         placeholder="Search for snacks, beverages, combos..."
-                        className="w-full pl-10 h-10 bg-zinc-50 border-zinc-200 focus-visible:ring-primary focus:bg-white transition-all"
+                        className="w-full pl-10 h-10 bg-muted border-border focus-visible:ring-primary focus:bg-background transition-all rounded-full"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
+                        autoComplete="off"
                     />
-                    <Search className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors ${searchQuery ? "text-primary" : "text-zinc-400"}`} />
+                    <Search className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors ${searchQuery ? "text-primary" : "text-muted-foreground"}`} />
 
                     {/* Search Results Dropdown */}
                     {searchQuery.length > 1 && (
-                        <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-zinc-200 shadow-2xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200 z-50">
+                        <div className="absolute top-full left-0 right-0 mt-2 bg-background border border-border shadow-2xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200 z-50 rounded-xl">
                             {isSearching ? (
                                 <div className="p-4 flex items-center gap-3">
                                     <div className="w-4 h-4 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
@@ -95,33 +96,33 @@ export default function Header() {
                                 </div>
                             ) : searchResults.length > 0 ? (
                                 <div className="py-2">
-                                    <p className="px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 bg-zinc-50/50">Results</p>
+                                    <p className="px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground bg-muted/50">Results</p>
                                     {searchResults.map(product => (
                                         <Link
                                             key={product.id}
                                             href={`/products/${product.id}`}
-                                            className="flex items-center gap-4 px-4 py-3 hover:bg-zinc-50 transition-colors group/item"
+                                            className="flex items-center gap-4 px-4 py-3 hover:bg-muted transition-colors group/item"
                                             onClick={() => setSearchQuery("")}
                                         >
-                                            <div className="relative w-10 h-10 bg-zinc-100 shrink-0 overflow-hidden">
+                                            <div className="relative w-10 h-10 bg-muted shrink-0 overflow-hidden rounded-md">
                                                 <Image src={product.image[0]} fill alt={product.name} className="object-cover" />
                                             </div>
                                             <div className="flex-1 min-w-0">
-                                                <p className="text-sm font-black uppercase tracking-tighter text-zinc-900 group-hover/item:text-primary transition-colors truncate">
+                                                <p className="text-sm font-bold text-foreground group-hover/item:text-primary transition-colors truncate">
                                                     {highlightText(product.name, searchQuery)}
                                                 </p>
-                                                <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">{product.category}</p>
+                                                <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-widest">{product.category}</p>
                                             </div>
-                                            <span className="text-xs font-black text-zinc-900 pr-2">₹{product.price}</span>
+                                            <span className="text-xs font-bold text-foreground pr-2">₹{product.price}</span>
                                         </Link>
                                     ))}
-                                    <Link href="/categories/all" className="block text-center p-3 text-[10px] font-black uppercase tracking-[0.2em] text-primary hover:bg-zinc-50 border-t border-zinc-100">
+                                    <Link href="/categories/all" className="block text-center p-3 text-[10px] font-bold uppercase tracking-widest text-primary hover:bg-muted border-t border-border">
                                         View All Products
                                     </Link>
                                 </div>
                             ) : (
-                                <div className="p-8 text-center bg-zinc-50/50">
-                                    <p className="text-xs font-black uppercase tracking-widest text-zinc-400 mb-1">No products found</p>
+                                <div className="p-8 text-center bg-muted/30">
+                                    <p className="text-xs font-black uppercase tracking-widest text-zinc-400 mb-1">No search results found</p>
                                     <p className="text-[10px] font-medium text-zinc-500">Try a different keyword or category</p>
                                 </div>
                             )}
@@ -153,12 +154,12 @@ export default function Header() {
                 <div className="flex items-center gap-2 md:gap-4">
                     <div className="hidden lg:flex items-center gap-2">
                         <Link href="/login">
-                            <Button variant="ghost" className="text-sm font-bold uppercase tracking-widest hover:bg-zinc-50 px-4">
+                            <Button variant="ghost" className="text-sm font-semibold hover:bg-muted px-4 rounded-full">
                                 Log In
                             </Button>
                         </Link>
                         <Link href="/signup">
-                            <Button className="text-sm font-black uppercase tracking-widest px-6 rounded-none">
+                            <Button className="text-sm font-bold px-6 rounded-full shadow-lg shadow-primary/20">
                                 Sign Up
                             </Button>
                         </Link>
@@ -167,7 +168,7 @@ export default function Header() {
                     <Button
                         variant="ghost"
                         size="icon"
-                        className="relative hover:bg-zinc-50 rounded-full"
+                        className="relative hover:bg-muted rounded-full"
                         onClick={() => setIsCartOpen(true)}
                     >
                         <ShoppingCart className="w-5 h-5" />

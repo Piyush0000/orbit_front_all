@@ -36,7 +36,7 @@ export default function CartPage() {
     }
 
     return (
-        <div className="bg-zinc-50/50 min-h-screen pb-20">
+        <div className="bg-background min-h-screen pb-20">
             <div className="container mx-auto px-4 py-12">
                 <div className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-zinc-400 mb-8">
                     <Link href="/" className="hover:text-primary transition-colors">Home</Link>
@@ -47,7 +47,7 @@ export default function CartPage() {
                 <div className="grid lg:grid-cols-12 gap-12 items-start">
                     {/* Main Cart Content */}
                     <div className="lg:col-span-8 space-y-12">
-                        <div className="bg-white border border-zinc-200 shadow-sm overflow-hidden">
+                        <div className="bg-card border border-border shadow-sm overflow-hidden">
                             <div className="p-8 border-b border-zinc-100 flex items-center justify-between">
                                 <div>
                                     <h1 className="text-3xl font-black uppercase tracking-tighter text-zinc-900">Review Your Bag</h1>
@@ -109,7 +109,7 @@ export default function CartPage() {
                             </div>
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                                 {crossSells.map((product) => (
-                                    <div key={product.id} className="bg-white border border-zinc-100 p-4 transition-all hover:shadow-lg group">
+                                    <div key={product.id} className="bg-card border border-border p-4 transition-all hover:shadow-lg group">
                                         <div className="relative aspect-square mb-4 bg-zinc-50 overflow-hidden">
                                             <Image src={product.image[0]} fill alt={product.name} className="object-cover transition-transform group-hover:scale-110" />
                                         </div>
@@ -153,13 +153,15 @@ export default function CartPage() {
                                 <span className="text-3xl font-black text-primary tracking-tighter">₹{subtotal}</span>
                             </div>
 
-                            <Button className="w-full h-16 text-lg font-black uppercase tracking-[0.2em] group rounded-none">
-                                Proceed To Pay
-                                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-2" />
-                            </Button>
+                            <Link href="/checkout">
+                                <Button className="w-full h-16 text-lg font-black uppercase tracking-[0.2em] group rounded-none">
+                                    Proceed To Pay
+                                    <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-2" />
+                                </Button>
+                            </Link>
                         </div>
 
-                        <div className="bg-white border border-zinc-200 p-6 space-y-4">
+                        <div className="bg-card border border-border p-6 space-y-4">
                             <div className="flex items-center gap-4">
                                 <ShieldCheck className="w-6 h-6 text-primary shrink-0" />
                                 <div>

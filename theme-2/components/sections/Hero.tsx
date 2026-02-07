@@ -35,16 +35,16 @@ export default function Hero() {
     const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
 
     return (
-        <section className="relative w-full overflow-hidden bg-white py-12 md:py-20 lg:py-28">
+        <section className="relative w-full overflow-hidden bg-background py-12 md:py-20 lg:py-28">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
                     <div className="flex flex-col justify-center space-y-6 text-center lg:text-left">
                         <div className="space-y-4">
-                            <h1 className="text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl xl:text-8xl/none text-zinc-900 uppercase leading-[0.9]">
+                            <h1 className="text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl xl:text-8xl/none text-foreground uppercase leading-[0.9]">
                                 Fresh Food <br /> & Drinks <br />
                                 <span className="text-primary italic">Delivered.</span>
                             </h1>
-                            <p className="max-w-[550px] text-zinc-500 md:text-xl font-medium leading-relaxed mx-auto lg:mx-0">
+                            <p className="max-w-[550px] text-muted-foreground md:text-xl font-medium leading-relaxed mx-auto lg:mx-0">
                                 Premium snacks, refreshing beverages & ready-to-eat meals.
                                 Sourced fresh, packed with care, delivered fast to your doorstep.
                             </p>
@@ -53,7 +53,7 @@ export default function Hero() {
                             <Button size="lg" className="px-10 py-7 text-sm font-black uppercase tracking-[0.2em] h-auto rounded-none shadow-xl hover:translate-y-[-2px] transition-all">
                                 Order Now
                             </Button>
-                            <Button size="lg" variant="outline" className="px-10 py-7 text-sm font-black uppercase tracking-[0.2em] h-auto bg-transparent border-2 border-zinc-200 hover:bg-zinc-50 rounded-none transition-all">
+                            <Button size="lg" variant="outline" className="px-10 py-7 text-sm font-black uppercase tracking-[0.2em] h-auto bg-transparent border-2 border-border hover:bg-muted rounded-none transition-all">
                                 Browse Menu
                             </Button>
                         </div>
@@ -64,7 +64,7 @@ export default function Hero() {
                                 <button
                                     key={idx}
                                     onClick={() => setCurrentSlide(idx)}
-                                    className={`h-1 transition-all duration-300 ${currentSlide === idx ? "w-8 bg-primary" : "w-4 bg-zinc-200"
+                                    className={`h-1 transition-all duration-300 ${currentSlide === idx ? "w-8 bg-primary" : "w-4 bg-muted"
                                         }`}
                                     aria-label={`Go to slide ${idx + 1}`}
                                 />
@@ -98,7 +98,7 @@ export default function Hero() {
                                     variant="ghost"
                                     size="icon"
                                     onClick={prevSlide}
-                                    className="h-12 w-12 rounded-full bg-white/80 backdrop-blur hover:bg-white text-zinc-900 shadow-lg"
+                                    className="h-12 w-12 rounded-full bg-background/80 backdrop-blur hover:bg-background text-foreground shadow-lg"
                                 >
                                     <ChevronLeft className="h-6 w-6" />
                                 </Button>
@@ -106,7 +106,7 @@ export default function Hero() {
                                     variant="ghost"
                                     size="icon"
                                     onClick={nextSlide}
-                                    className="h-12 w-12 rounded-full bg-white/80 backdrop-blur hover:bg-white text-zinc-900 shadow-lg"
+                                    className="h-12 w-12 rounded-full bg-background/80 backdrop-blur hover:bg-background text-foreground shadow-lg"
                                 >
                                     <ChevronRight className="h-6 w-6" />
                                 </Button>
@@ -114,10 +114,10 @@ export default function Hero() {
                         </div>
 
                         {/* Floating Badge */}
-                        <div className="absolute -bottom-6 -left-6 bg-white p-6 shadow-2xl z-30 hidden md:block border border-zinc-100">
-                            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400 mb-1">Weekly Special</p>
+                        <div className="absolute -bottom-6 -left-6 bg-card p-6 shadow-2xl z-30 hidden md:block border border-border">
+                            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground mb-1">Weekly Special</p>
                             <p className="text-xl font-black uppercase tracking-tighter text-primary">Artisanal Combos</p>
-                            <p className="text-xs font-bold text-zinc-500 mt-1">Starting at $19.99</p>
+                            <p className="text-xs font-bold text-muted-foreground mt-1">Starting at $19.99</p>
                         </div>
                     </div>
                 </div>

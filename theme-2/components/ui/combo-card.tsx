@@ -16,7 +16,7 @@ interface ComboCardProps {
 
 export function ComboCard({ title, items, price, originalPrice, image, className }: ComboCardProps) {
     return (
-        <Card className="group border-zinc-200 overflow-hidden rounded-none bg-white hover:border-primary/50 transition-all shadow-sm hover:shadow-xl">
+        <Card className="group border-border overflow-hidden rounded-none bg-card hover:border-primary/50 transition-all shadow-sm hover:shadow-xl">
             <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
                     src={image}
@@ -34,10 +34,10 @@ export function ComboCard({ title, items, price, originalPrice, image, className
             </div>
             <CardContent className="p-6 pt-4 flex items-center justify-between">
                 <div>
-                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 mb-1">Bundle Price</p>
+                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground mb-1">Bundle Price</p>
                     <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-black text-zinc-900 tracking-tighter">₹{price}</span>
-                        <span className="text-sm font-bold text-zinc-400 line-through tracking-tighter">₹{originalPrice}</span>
+                        <span className="text-2xl font-black text-card-foreground tracking-tighter">₹{price}</span>
+                        <span className="text-sm font-bold text-muted-foreground line-through tracking-tighter">₹{originalPrice}</span>
                     </div>
                 </div>
                 <Button size="icon" className="h-12 w-12 rounded-none bg-zinc-900 hover:bg-primary transition-all group/btn">

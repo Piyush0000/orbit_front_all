@@ -20,7 +20,7 @@ export default function LimitedOffer() {
                         <div className="flex gap-4 md:gap-8">
                             {[{ l: "Hrs", v: "02" }, { l: "Min", v: "45" }, { l: "Sec", v: "30" }].map((item) => (
                                 <div key={item.l} className="flex flex-col items-center space-y-2">
-                                    <div className="flex h-16 w-16 md:h-24 md:w-24 items-center justify-center rounded-xl bg-white/10 text-3xl md:text-5xl font-bold backdrop-blur-sm">
+                                    <div className="flex h-16 w-16 md:h-24 md:w-24 items-center justify-center rounded-xl bg-background/10 text-3xl md:text-5xl font-bold backdrop-blur-sm">
                                         {item.v}
                                     </div>
                                     <span className="text-xs md:text-sm uppercase tracking-widest text-zinc-500 font-bold">{item.l}</span>
@@ -28,7 +28,7 @@ export default function LimitedOffer() {
                             ))}
                         </div>
 
-                        <Button size="lg" className="bg-white text-zinc-900 hover:bg-zinc-200 px-12 py-8 text-xl font-bold uppercase tracking-widest h-auto">
+                        <Button size="lg" className="bg-background text-foreground hover:bg-muted px-12 py-8 text-xl font-bold uppercase tracking-widest h-auto">
                             Shop Now
                         </Button>
                     </div>

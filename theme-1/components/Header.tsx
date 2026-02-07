@@ -82,6 +82,7 @@ export default function Header() {
                         className="w-full pl-10 h-10 bg-zinc-50 border-zinc-200 focus-visible:ring-primary focus:bg-white transition-all"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
+                        autoComplete="off"
                     />
                     <Search className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors ${searchQuery ? "text-primary" : "text-zinc-400"}`} />
 
@@ -121,7 +122,7 @@ export default function Header() {
                                 </div>
                             ) : (
                                 <div className="p-8 text-center bg-zinc-50/50">
-                                    <p className="text-xs font-black uppercase tracking-widest text-zinc-400 mb-1">No products found</p>
+                                    <p className="text-xs font-black uppercase tracking-widest text-zinc-400 mb-1">No search results found</p>
                                     <p className="text-[10px] font-medium text-zinc-500">Try a different keyword or category</p>
                                 </div>
                             )}

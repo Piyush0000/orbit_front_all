@@ -71,23 +71,23 @@ export default function ProductDetailPage() {
     }
 
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-background">
             <div className="container mx-auto px-4 md:px-6 py-12">
                 {/* Breadcrumbs */}
-                <nav className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 mb-10 overflow-x-auto whitespace-nowrap">
+                <nav className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground mb-10 overflow-x-auto whitespace-nowrap">
                     <Link href="/" className="hover:text-primary transition-colors">Home</Link>
                     <ChevronRight className="w-3 h-3" />
                     <Link href="/categories/all" className="hover:text-primary transition-colors">Shop</Link>
                     <ChevronRight className="w-3 h-3" />
                     <Link href={`/categories/${product.category}`} className="hover:text-primary transition-colors">{product.category}</Link>
                     <ChevronRight className="w-3 h-3" />
-                    <span className="text-zinc-900 truncate">{product.name}</span>
+                    <span className="text-foreground truncate">{product.name}</span>
                 </nav>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
                     {/* Left: Image Gallery */}
                     <div className="space-y-6">
-                        <div className="aspect-square relative rounded-none overflow-hidden bg-zinc-50 border border-zinc-100 shadow-[20px_20px_0px_0px_rgba(244,244,245,1)]">
+                        <div className="aspect-square relative rounded-none overflow-hidden bg-muted border border-border shadow-[20px_20px_0px_0px_rgba(244,244,245,1)]">
                             <Image
                                 src={product.image[activeImage]}
                                 alt={product.name}
@@ -107,7 +107,7 @@ export default function ProductDetailPage() {
                                     <button
                                         key={idx}
                                         onClick={() => setActiveImage(idx)}
-                                        className={`relative w-24 aspect-square rounded-none overflow-hidden border-2 transition-all shrink-0 ${activeImage === idx ? 'border-primary' : 'border-transparent hover:border-zinc-200'}`}
+                                        className={`relative w-24 aspect-square rounded-none overflow-hidden border-2 transition-all shrink-0 ${activeImage === idx ? 'border-primary' : 'border-transparent hover:border-border'}`}
                                     >
                                         <Image src={img} alt={`${product.name} ${idx + 1}`} fill className="object-cover" />
                                     </button>
@@ -124,7 +124,7 @@ export default function ProductDetailPage() {
                                 <div className="h-4 w-px bg-zinc-200" />
                                 <SpiceLevelTag level={product.spiceLevel} />
                             </div>
-                            <h1 className="text-4xl md:text-6xl font-black tracking-tighter text-zinc-900 uppercase leading-[0.9]">
+                            <h1 className="text-4xl md:text-6xl font-black tracking-tighter text-foreground uppercase leading-[0.9]">
                                 {product.name}
                             </h1>
                             <div className="flex items-center gap-6">
@@ -132,7 +132,7 @@ export default function ProductDetailPage() {
                                     <Star className="w-3 h-3 fill-primary text-primary" />
                                     <span>{product.rating}</span>
                                 </div>
-                                <span className="text-zinc-400 text-[10px] font-black uppercase tracking-[0.2em]">{product.reviewCount} Verified Reviews</span>
+                                <span className="text-muted-foreground text-[10px] font-black uppercase tracking-[0.2em]">{product.reviewCount} Verified Reviews</span>
                             </div>
                         </div>
 
@@ -140,7 +140,7 @@ export default function ProductDetailPage() {
                             ₹{product.price}
                         </div>
 
-                        <p className="text-zinc-500 text-lg font-medium leading-relaxed max-w-xl">
+                        <p className="text-muted-foreground text-lg font-medium leading-relaxed max-w-xl">
                             {product.shortDescription}
                         </p>
 
@@ -163,16 +163,18 @@ export default function ProductDetailPage() {
                                     Add to Bag
                                 </Button>
                             </div>
-                            <Button
-                                variant="outline"
-                                className="h-14 rounded-none text-sm font-black uppercase tracking-[0.2em] border-zinc-200 hover:bg-zinc-50 transition-all"
-                            >
-                                Fast Checkout
-                            </Button>
+                            <Link href="/checkout" className="flex-1">
+                                <Button
+                                    variant="outline"
+                                    className="w-full h-14 rounded-none text-sm font-black uppercase tracking-[0.2em] border-border hover:bg-muted transition-all"
+                                >
+                                    Fast Checkout
+                                </Button>
+                            </Link>
                         </div>
 
                         {/* Trust Badges */}
-                        <div className="flex flex-wrap gap-3 pt-8 border-t border-zinc-100">
+                        <div className="flex flex-wrap gap-3 pt-8 border-t border-border">
                             <TrustBadge icon="shield" text="Certified Pure" />
                             <TrustBadge icon="truck" text="Fast Delivery" />
                             <TrustBadge icon="refresh" text="Easy Returns" />
@@ -200,13 +202,13 @@ export default function ProductDetailPage() {
                         </TabsContent>
 
                         <TabsContent value="ingredients" className="mt-0 outline-none">
-                            <div className="max-w-2xl bg-zinc-50 p-10 border border-zinc-100">
-                                <h3 className="text-xs font-black text-zinc-900 mb-6 uppercase tracking-[0.3em]">Curated Components</h3>
+                            <div className="max-w-2xl bg-muted/30 p-10 border border-border">
+                                <h3 className="text-xs font-black text-foreground mb-6 uppercase tracking-[0.3em]">Curated Components</h3>
                                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 list-none">
                                     {formatIngredients(product.ingredients)}
                                 </ul>
-                                <div className="mt-10 p-4 border-l-4 border-primary bg-white shadow-sm">
-                                    <p className="text-xs text-zinc-500 italic font-medium leading-relaxed">
+                                <div className="mt-10 p-4 border-l-4 border-primary bg-card shadow-sm">
+                                    <p className="text-xs text-muted-foreground italic font-medium leading-relaxed">
                                         * Bold items represent premium focus or potential allergens. We maintain the highest standards of purity in our sourcing.
                                     </p>
                                 </div>

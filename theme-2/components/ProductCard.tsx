@@ -18,13 +18,13 @@ export function ProductCard({ product }: ProductCardProps) {
 
     return (
         <Card
-            className="group relative flex flex-col border-zinc-100 shadow-sm transition-all hover:shadow-md overflow-hidden bg-white rounded-2xl"
+            className="group relative flex flex-col border-border shadow-sm transition-all hover:shadow-md overflow-hidden bg-card rounded-2xl"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
             <Link href={`/products/${product.id}`} className="block">
                 <CardHeader className="p-0">
-                    <div className="aspect-square relative overflow-hidden bg-zinc-50">
+                    <div className="aspect-square relative overflow-hidden bg-muted">
                         <Image
                             src={product.image[0]}
                             alt={product.name}
@@ -57,7 +57,7 @@ export function ProductCard({ product }: ProductCardProps) {
                         <div className={`absolute inset-0 bg-black/5 flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
                             <Button
                                 size="sm"
-                                className="bg-white text-zinc-900 hover:bg-primary hover:text-white shadow-xl translate-y-4 group-hover:translate-y-0 transition-all duration-300 rounded-full px-6 font-bold"
+                                className="bg-card text-card-foreground hover:bg-primary hover:text-primary-foreground shadow-xl translate-y-4 group-hover:translate-y-0 transition-all duration-300 rounded-full px-6 font-bold"
                                 onClick={(e) => {
                                     e.preventDefault()
                                     alert(`${product.name} added to cart!`)
@@ -73,19 +73,19 @@ export function ProductCard({ product }: ProductCardProps) {
 
             <CardContent className="p-4 flex-1 flex flex-col gap-2">
                 <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1 text-sm font-medium text-zinc-500">
+                    <div className="flex items-center gap-1 text-sm font-medium text-muted-foreground">
                         <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
                         <span>{product.rating} ({product.reviewCount})</span>
                     </div>
                 </div>
 
                 <Link href={`/products/${product.id}`}>
-                    <CardTitle className="text-lg font-bold text-zinc-900 transition-colors hover:text-primary leading-tight">
+                    <CardTitle className="text-lg font-bold text-card-foreground transition-colors hover:text-primary leading-tight">
                         {product.name}
                     </CardTitle>
                 </Link>
 
-                <p className="text-sm text-zinc-500 line-clamp-1">
+                <p className="text-sm text-muted-foreground line-clamp-1">
                     {product.shortDescription}
                 </p>
 

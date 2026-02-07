@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Provision & Co. | Premium Food & Beverage Storefront",
+  title: "Provision & Co. | Fresh Edition",
   description: "Fresh snacks, beverages, and ready-to-eat meals delivered to your door.",
 };
 

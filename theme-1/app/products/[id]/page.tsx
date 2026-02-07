@@ -163,12 +163,14 @@ export default function ProductDetailPage() {
                                     Add to Bag
                                 </Button>
                             </div>
-                            <Button
-                                variant="outline"
-                                className="h-14 rounded-none text-sm font-black uppercase tracking-[0.2em] border-zinc-200 hover:bg-zinc-50 transition-all"
-                            >
-                                Fast Checkout
-                            </Button>
+                            <Link href="/checkout" className="flex-1">
+                                <Button
+                                    variant="outline"
+                                    className="w-full h-14 rounded-none text-sm font-black uppercase tracking-[0.2em] border-zinc-200 hover:bg-zinc-50 transition-all"
+                                >
+                                    Fast Checkout
+                                </Button>
+                            </Link>
                         </div>
 
                         {/* Trust Badges */}

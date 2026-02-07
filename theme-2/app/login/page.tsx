@@ -10,8 +10,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 export default function LoginPage() {
     return (
-        <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center bg-zinc-50/50 px-4 py-20">
-            <Card className="w-full max-w-md border-zinc-200 shadow-2xl overflow-hidden bg-white">
+        <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center bg-background px-4 py-20">
+            <Card className="w-full max-w-md border-border shadow-2xl overflow-hidden bg-card">
                 <CardHeader className="space-y-2 pb-10 text-center bg-zinc-900 text-white p-10">
                     <CardTitle className="text-3xl font-black uppercase tracking-tighter">Welcome Back</CardTitle>
                     <CardDescription className="text-zinc-400 font-medium">
@@ -72,7 +72,7 @@ export default function LoginPage() {
                             <span className="w-full border-t border-zinc-200" />
                         </div>
                         <div className="relative flex justify-center text-xs uppercase">
-                            <span className="bg-white px-4 text-zinc-400 font-bold tracking-widest">Or continue with</span>
+                            <span className="bg-card px-4 text-muted-foreground font-bold tracking-widest">Or continue with</span>
                         </div>
                     </div>
 

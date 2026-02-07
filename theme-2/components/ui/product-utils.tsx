@@ -13,21 +13,21 @@ interface QuantitySelectorProps {
 
 export function QuantitySelector({ quantity, onIncrement, onDecrement, className }: QuantitySelectorProps) {
     return (
-        <div className={cn("inline-flex items-center border border-zinc-200 bg-zinc-50 rounded-none overflow-hidden", className)}>
+        <div className={cn("inline-flex items-center border border-border bg-muted rounded-none overflow-hidden", className)}>
             <Button
                 variant="ghost"
                 size="icon"
                 onClick={onDecrement}
-                className="h-10 w-10 hover:bg-zinc-100 rounded-none border-r border-zinc-200"
+                className="h-10 w-10 hover:bg-muted/80 rounded-none border-r border-border"
             >
                 <Minus className="h-4 w-4" />
             </Button>
-            <span className="w-12 text-center text-sm font-black text-zinc-900">{quantity}</span>
+            <span className="w-12 text-center text-sm font-black text-foreground">{quantity}</span>
             <Button
                 variant="ghost"
                 size="icon"
                 onClick={onIncrement}
-                className="h-10 w-10 hover:bg-zinc-100 rounded-none border-l border-zinc-200"
+                className="h-10 w-10 hover:bg-muted/80 rounded-none border-l border-border"
             >
                 <Plus className="h-4 w-4" />
             </Button>
@@ -54,19 +54,19 @@ export function NutritionTable({ nutrition }: { nutrition: any }) {
     ]
 
     return (
-        <div className="border border-zinc-100 rounded-none overflow-hidden bg-white shadow-sm">
+        <div className="border border-border rounded-none overflow-hidden bg-card shadow-sm">
             <Table>
-                <TableHeader className="bg-zinc-900">
+                <TableHeader className="bg-foreground">
                     <TableRow className="hover:bg-transparent border-0">
-                        <TableHead className="text-white font-black uppercase tracking-widest h-12">Nutrient</TableHead>
-                        <TableHead className="text-white font-black uppercase tracking-widest h-12 text-right">Per Serving</TableHead>
+                        <TableHead className="text-background font-black uppercase tracking-widest h-12">Nutrient</TableHead>
+                        <TableHead className="text-background font-black uppercase tracking-widest h-12 text-right">Per Serving</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
                     {items.map((item) => (
-                        <TableRow key={item.label} className="border-b border-zinc-100 last:border-0 hover:bg-zinc-50 transition-colors">
-                            <TableCell className="font-bold text-zinc-600 text-sm py-4">{item.label}</TableCell>
-                            <TableCell className="text-right font-black text-zinc-900 text-sm py-4 uppercase tracking-tighter">{item.value}</TableCell>
+                        <TableRow key={item.label} className="border-b border-border last:border-0 hover:bg-muted transition-colors">
+                            <TableCell className="font-bold text-muted-foreground text-sm py-4">{item.label}</TableCell>
+                            <TableCell className="text-right font-black text-foreground text-sm py-4 uppercase tracking-tighter">{item.value}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
